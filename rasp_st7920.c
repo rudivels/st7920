@@ -1,4 +1,4 @@
-// Programa monitor Raspberry com LCD ST7920 mostra IP wifi
+// Programa monitor Raspberry com LCD ST7920 mostra IP
 // Interface de comandos simples com teclado de 3 botoes
 // Biblioteca de LCD ST7920 testado e funcioando
 // Rudi @ 09/04/2020
@@ -187,7 +187,7 @@ void main(void)
  puts(datum);
  puts(IPpath); 
  setup_rasp_lcd(); 
- lcd_str("Monitor Rasp V02"); 
+ lcd_str("Monitor Rasp V00"); 
  goto_lcd(2,1); 
  lcd_str(IPpath); // "111.222.222.111");
  goto_lcd(3,1); 
@@ -195,8 +195,6 @@ void main(void)
  while(1) 
  { 
   goto_lcd(4,1);
-  // lcd_bcd(i++);
-
   time(&rawtime); 
   strftime(datum,20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
   lcd_str(datum);
