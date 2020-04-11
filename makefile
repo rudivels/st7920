@@ -1,2 +1,2 @@
-rasp_st7920 : rasp_st7920.c
-	gcc -o rasp_st7920 rasp_st7920.c -lwiringPi -lwiringPiDev
+monitor : monitor.c lib_st7920textmode.c
+	gcc -o monitor monitor.c lib_st7920textmode.c -lwiringPi -lwiringPiDev
