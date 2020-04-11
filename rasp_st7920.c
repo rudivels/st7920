@@ -188,7 +188,7 @@ void main(void)
  puts(IPpath); 
 
  setup_rasp_lcd(); 
- lcd_str("Monitor Rasp V0"); 
+ lcd_str("Monitor Rasp V01"); 
  goto_lcd(2,1); 
  lcd_str(IPpath); // "111.222.222.111");
  goto_lcd(3,1); 
