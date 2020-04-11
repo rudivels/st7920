@@ -1,5 +1,5 @@
-# display_st7920_raspberry
-writing to the st7920 lcd display in text mode with Raspberry-Pi
+# Display LCD ST7920 no modo texto para Raspberry
+Writing to the ST7920 lcd display in text mode with Raspberry-Pi
 
 Rudivels@ 11/04/2020
 
@@ -26,23 +26,25 @@ A única biblioteca extra usado é WiringPi para faciliar o acesso aos pinos de 
 
 ## Pinagem
 
-A pinagen do LCD com os pinos fisicos do Raspberry está na tabela a seguir.
+
 Costuma ter muita confusão a respeito da nomenclatura e numero dos pinos do Raspberry devido a differentes funções que eles podem assumir. No nosso caso apresentamos a númeração física dos pinos do Raspberry e a numeração usado pelo wiringPi.
+
+A pinagen do LCD com os pinos fisicos do Raspberry está na tabela a seguir.
 
 
 | LCD       | Função                    |  Raspberry | WiringPi |       
 |-----------|:-------------------------:|:----------:|:--------:|
-| Pino  1   | Vss                       | pino       | GND      |
-| Pino  2   | Vdd                       | pino       | 5 volts  |
-| Pino  3   | Vo                        | pino       | 5 volts  |
+| Pino  1   | Vss                       | pino 20    | GND      |
+| Pino  2   | Vdd                       | pino  2    | 5 volts  |
+| Pino  3   | Vo                        | pino  2    | 5 volts  |
 | Pino  4   | RS ou /CS  chip select    | pino 24    | 10       | 
 | Pino  5   | RW ou /SID Sserial data   | pino 19    | 12       | 
 | Pino  6   | EN ou /SCLK serial clock  | pino 23    | 14       | 
 | Pino 17   | RST                       | pino 22    |  6       | 
-| Pino 19   | BLA (backlight Anode)     | pino       | 5 volts  |
-| Pino 20   | BLK (backlight Katode     | pino       | GND      |
+| Pino 19   | BLA (backlight Anode)     | pino  2    | 5 volts  |
+| Pino 20   | BLK (backlight Katode)    | pino 20    | GND      |
 
-Uma maneira fácil de conferir a numeração e a configuração é executar na linha do comando do terminal do Rasbian 
+Uma maneira fácil de conferir a numeração e a configuração é executar na linha do comando do terminal do Raspbian 
 
 $ gpio readall
 
