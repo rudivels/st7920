@@ -9,22 +9,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+// A definicao dos pinos do Raspberry e a configuracao do display estah neste arquivo 
 #include "lib_st7920textmode.h"
-
-#define LED     0 
 
 // Pino  4 LCD funcao RS ou /CS  chip select        === Fio branco  === ligado a Raspberry pino 24 WiringPi 10 SPI0 CS0
 // Pino  5 LCD funcao RW ou /SID Sserial data input === Fio cinza   === ligado a Raspberry pino 19 WiringPi 12 SPI0 MOSI
 // Pino  6 LCD funcao EN ou /SCLK serial clock      === Fio violeta === ligado a Raspberry pino 23 WiringPi 14 SPI0 SCLK
 // Pino 17 LCD funcao RST                           === Fio amarela === ligado a Raspberry pino 22 WiringPi  6 PIO  Reset 
-
-//  Falta definir os pinos conforme WiringPi headers
 //#define CS     10  
 //#define SID    12  
 //#define SCLK   14    
 //#define RESET   6   
 //#define LED     0 
 
+#define LED     0 
 
 int main(void)
 {
