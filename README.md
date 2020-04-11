@@ -15,9 +15,12 @@ no datasheet do display.
 O display é configurado para trabalhar em no modo serial
 A única biblioteca não padrão é o WiringPi disponível em http://wiringpi.com/
 
-# Pinagem
-// Pino  4 LCD funcao RS ou /CS  chip select        === Fio branco  === ligado a Raspberry pino 24 WiringPi 10 SPI0 CS0
-// Pino  5 LCD funcao RW ou /SID Sserial data input === Fio cinza   === ligado a Raspberry pino 19 WiringPi 12 SPI0 MOSI
-// Pino  6 LCD funcao EN ou /SCLK serial clock      === Fio violeta === ligado a Raspberry pino 23 WiringPi 14 SPI0 SCLK
-// Pino 17 LCD funcao RST                           === Fio amarela === ligado a Raspberry pino 22 WiringPi  6 PIO  Reset 
+## Pinagem
+
+|    Pinagem LCD| Função                    |  Raspberry | WiringPi |       |
+|---------------|:-------------------------:|------------|:--------:|------:|
+| Pino  4 LCD   | RS ou /CS  chip select    | pino 24    | 10       | CS0   |
+| Pino  5 LCD   | RW ou /SID Sserial data   | pino 19    | 12       | MOSI  |
+| Pino  6 LCD   | EN ou /SCLK serial clock  | pino 23    | 14       | SCLK  |
+| Pino 17 LCD   | RST                       | pino 22    |  6       | Reset | 
 
