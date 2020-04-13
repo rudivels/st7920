@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 // A definicao dos pinos do Raspberry e a configuracao do display estah neste arquivo 
 #include "lib_st7920textmode.h"
@@ -24,28 +25,34 @@
 
 #define LED     0 
 
+char IPpath[100];
+
+int leia_IP(void)
+{
+ FILE *fp;
+ fp = popen("hostname -I", "r");
+ if (fp == NULL) {
+    strcpy(IPpath,"Sem numero IP");
+    return(0);
+  }
+ fgets(IPpath, 16, fp); // sizeof(IPpath)-1, fp);
+ pclose(fp);
+ return(1);
+}
+
 int main(void)
 {
  int res;
  int i=0;
- char IPpath[100];
  char datum[80];
  time_t rawtime;  // timer = time(NULL);
  struct tm * timeinfo;
-
- FILE *fp;
- fp = popen("hostname -I", "r");
- if (fp == NULL) {
-    printf("Failed to run command\n" );
-    exit(1);
-  }
- fgets(IPpath, 16, fp); // sizeof(IPpath)-1, fp);
- pclose(fp);
+ res=leia_IP();
 
  time(&rawtime); 
  strftime(datum, 20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
- puts(datum);
- puts(IPpath); 
+ // puts(datum);
+ // puts(IPpath); 
  setup_rasp_lcd(); 
  lcd_str("Monitor IP"); 
  goto_lcd(2,1); 
