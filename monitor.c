@@ -25,17 +25,19 @@
 
 #define LED     0 
 
-char IPpath[100];
+char IPpath[20];
 
 int leia_IP(void)
 {
  FILE *fp;
  fp = popen("hostname -I", "r");
+ strcpy(IPpath,"Sem numero IP   ");
  if (fp == NULL) {
-    strcpy(IPpath,"Sem numero IP");
+    strcpy(IPpath,"Erro abertura   ");
     return(0);
   }
- fgets(IPpath, 16, fp); // sizeof(IPpath)-1, fp);
+ fgets(IPpath, 16, fp); 
+ IPpath[15]=0;
  pclose(fp);
  return(1);
 }
@@ -54,21 +56,22 @@ int main(void)
  // puts(datum);
  // puts(IPpath); 
  setup_rasp_lcd(); 
- lcd_str("Monitor IP"); 
+ lcd_str("Monitor IP  "); 
  goto_lcd(2,1); 
- lcd_str(IPpath); // "111.222.222.111");
+ lcd_str(IPpath);
  goto_lcd(3,1); 
  lcd_str(datum);
  while(1) 
  { 
-  goto_lcd(4,1);
   time(&rawtime);
   strftime(datum,20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
+  goto_lcd(4,1);
   lcd_str(datum);
-  if (i++ > 10) {
+  if (i++ > 5) {
+   res=leia_IP();
+   goto_lcd(2,1);
+   if (res==1) lcd_str(IPpath); else lcd_str("Sem IP wifi    ");
    i=0; 
-   goto_lcd(1,13);
-   lcd_bcd(i); 
   }
   digitalWrite(LED, HIGH); delay(400);
   digitalWrite(LED, LOW);  delay(400);
