@@ -27,7 +27,7 @@
 int main(void)
 {
  int res;
- char i=0;
+ int i=0;
  char IPpath[100];
  char datum[80];
  time_t rawtime;  // timer = time(NULL);
@@ -55,10 +55,14 @@ int main(void)
  while(1) 
  { 
   goto_lcd(4,1);
-  time(&rawtime); 
+  time(&rawtime);
   strftime(datum,20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
   lcd_str(datum);
-
+  if (i++ > 10) {
+   i=0; 
+   goto_lcd(1,13);
+   lcd_bcd(i); 
+  }
   digitalWrite(LED, HIGH); delay(400);
   digitalWrite(LED, LOW);  delay(400);
  }
