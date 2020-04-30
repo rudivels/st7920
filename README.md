@@ -46,13 +46,18 @@ A pinagen do LCD com os pinos fisicos do Raspberry está na tabela a seguir.
 
 Uma maneira fácil de conferir a numeração e a configuração é executar na linha do comando do terminal do Raspbian 
 
+```
 $ gpio readall
+```
 
 Veja que escolhemos usar os mesmos pinos do Raspberry que poderiam ser usados para implementar a comunicação como display pelo porta SPI. Entretanto, usamos os pinos como simples portas de saída. Num futuro vamos lançar a versão com SPI aproveitando o hardware já montado.
 
 Não esquece de configurar o hardware do Raspberry de não ativar o SPI. Isso pode ser feito pelo comando 
 
+```
 $ sudo raspi-config
+```
+
 
 Em seguida seleciona <5 - Interface Options>  e depois desabilita o carregamento do módulo do Kernel de SPI com a opção  <P4 - SPI>
 
