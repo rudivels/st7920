@@ -70,12 +70,18 @@ No repositório temos os arquivos
 
 O primeiro passo é configurar os pinos do Raspberry que vão ser usados para acionar o display. Neste exemplo os pinos escolhidos foram
 
-| Função | pinos |
-|--------|:-----:|
-| CS     | 10    |
-| SID    | 12    |
-| SCLK   | 14    |
-| RESET  |  6    |
+| Função | Wiring Pi |pinos |
+|--------|:-----:|:--------:|
+| CS     | 10    | pino 24  |
+| SID    | 12    | pino 19  |
+| SCLK   | 14    | pino 23  |
+| RESET  |  6    | pino 22  |
+
+Os detalhes da conexão está na figura a seguir.
+
+![](conexao.jpg)
+
+.
 
 Há uma função na biblioteca que passa os pinos para configurar o Raspberry. Os pinos são repassados na sequencia , como mostrado a seguir:
 
