@@ -62,3 +62,19 @@ $ sudo raspi-config
 Em seguida seleciona <5 - Interface Options>  e depois desabilita o carregamento do módulo do Kernel de SPI com a opção  <P4 - SPI>
 
 Feito isso, basta baixar os arquivos e rodar o programa.
+
+## Rodar o programa
+No repositório temos os arquivos 
+`lib_st7920textmode.c` e
+`lib_st7920textmode.h` que contem a biblioteca com as funções báscas de acesso ao display. 
+
+O script para compilar as bibliotecas com um arquivo está no `makefile`
+
+O programa usado aqui como exemplo está no arquivo `monitor.c` e é uma rotina que a cada 5 segundos verifique se a conexão TCP/IP ainda está ativa e escreve o endereço do IP no display. 
+Este programa é muito útil quando vc trabalho com uma configuração mínima do Raspberry sem display e teclado e você precisa acessar o Raspberry via ssh. 
+
+Uma dica. Coloca o programa para ser executado pelo CRON cada vez que o sistema da boot.
+Para isso, adiciona no CRONTAB a linha 
+
+`@reboot nohup /"caminho_onde_se_encontra_seu_programa"/monitor &
+`
