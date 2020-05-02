@@ -68,6 +68,22 @@ No repositório temos os arquivos
 `lib_st7920textmode.c` e
 `lib_st7920textmode.h` que contem a biblioteca com as funções báscas de acesso ao display. 
 
+O primeiro passo é configurar os pinos do Raspberry que vão ser usados para acionar o display. Neste exemplo os pinos escolhidos foram
+
+| Função | pinos |
+|--------|:-----:|
+| CS     | 10    |
+| SID    | 12    |
+| SCLK   | 14    |
+| RESET  |  6    |
+
+Há uma função na biblioteca que passa os pinos para configurar o Raspberry. Os pinos são repassados na sequencia , como mostrado a seguir:
+
+**void config\_pinos\_rasp\_lcd(CS, SID, SCLK, RESET);**
+
+As demais funções na biblioteca são triviais.
+
+
 O script para compilar as bibliotecas com um arquivo está no `makefile`
 
 O programa usado aqui como exemplo está no arquivo `monitor.c` e é uma rotina que a cada 5 segundos verifique se a conexão TCP/IP ainda está ativa e escreve o endereço do IP no display. 
