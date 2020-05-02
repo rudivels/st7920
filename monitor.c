@@ -17,11 +17,12 @@
 // Pino  5 LCD funcao RW ou /SID Sserial data input === Fio cinza   === ligado a Raspberry pino 19 WiringPi 12 SPI0 MOSI
 // Pino  6 LCD funcao EN ou /SCLK serial clock      === Fio violeta === ligado a Raspberry pino 23 WiringPi 14 SPI0 SCLK
 // Pino 17 LCD funcao RST                           === Fio amarela === ligado a Raspberry pino 22 WiringPi  6 PIO  Reset 
-//#define CS     10  
-//#define SID    12  
-//#define SCLK   14    
-//#define RESET   6   
-//#define LED     0 
+
+// Definindo os pinos do display que vao entrar no  setup_rasp_lcd(CS,SID,SCLK,RESET)
+// #define CS     10  
+// #define SID    12  
+// #define SCLK   14    
+// #define RESET   6  
 
 #define LED     0 
 
@@ -55,6 +56,7 @@ int main(void)
  strftime(datum, 20, "%m-%d %H:%M:%S", localtime(&rawtime)); 
  // puts(datum);
  // puts(IPpath); 
+ config_pinos_rasp_lcd(10,12,14,6);  
  setup_rasp_lcd(); 
  lcd_str("Monitor IP  "); 
  goto_lcd(2,1); 

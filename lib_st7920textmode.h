@@ -15,3 +15,4 @@ void goto_lcd(unsigned char l, unsigned char c );
 void lcd_str(char s[]);
 void lcd_bcd(unsigned char a);
 void setup_rasp_lcd(void);
+void config_pinos_rasp_lcd(unsigned char iCS, unsigned chariSID, unsigned chariSCLK, unsigned chariRESET);

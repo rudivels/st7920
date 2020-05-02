@@ -12,10 +12,22 @@
 // Pino  6 LCD funcao EN  ligado a Raspberry pino 23 WiringPi 14 
 // Pino 17 LCD funcao RST ligado a Raspberry pino 22 WiringPi  6 
 
-#define CS     10  
-#define SID    12  
-#define SCLK   14    
-#define RESET   6   
+// #define CS     10  
+//#define SID    12  
+//#define SCLK   14    
+//#define RESET   6   
+
+
+unsigned char CS , SID , SCLK , RESET;   
+
+void config_pinos_rasp_lcd(unsigned char iCS, unsigned char iSID, unsigned char iSCLK, unsigned char iRESET)
+{
+ CS=iCS;
+ SID=iSID;
+ SCLK=iSCLK;
+ RESET=iRESET;   
+} 
+
 
 void setbit(unsigned char a)
 {
@@ -136,7 +148,7 @@ void lcd_bcd(unsigned char a)
  write_data_lcd('0'+a%10);
 }
 
-void setup_rasp_lcd(void)
+void setup_rasp_lcd()
 {
   wiringPiSetup ();
   pinMode (CS,   OUTPUT);
