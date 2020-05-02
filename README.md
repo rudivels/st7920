@@ -71,6 +71,7 @@ No repositório temos os arquivos
 O script para compilar as bibliotecas com um arquivo está no `makefile`
 
 O programa usado aqui como exemplo está no arquivo `monitor.c` e é uma rotina que a cada 5 segundos verifique se a conexão TCP/IP ainda está ativa e escreve o endereço do IP no display. 
+
 Este programa é muito útil quando vc trabalho com uma configuração mínima do Raspberry sem display e teclado e você precisa acessar o Raspberry via ssh. 
 
 Uma dica. Coloca o programa para ser executado pelo CRON cada vez que o sistema da boot.
